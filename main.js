@@ -35,6 +35,7 @@ var animate = function ()  //Rendering
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
 
+    // render, or 'create a still image', of the scene
     renderer.render( scene, camera );
 }
 animate();
