@@ -4,10 +4,17 @@
 var scene = new THREE.Scene();  
 scene.background = new THREE.Color( "rgb(26, 35, 55)" );
 
-var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+var camera = new THREE.PerspectiveCamera( 
+    75, 
+    window.innerWidth / window.innerHeight, 
+    0.1, 
+    1000 );
 /*
     (FOV, aspect ratio, near, far)
-    75 = field of view (FOV) in degrees ->extent of the scene that is seen on the display
+    75 = field of view (FOV) in degrees -> seberapa lebar camera's viewnya
+    aspect = ratio lebar:tinggi scene
+    near =  near clipping plane (default = 0.1)
+    far = far clipping plane (default = 2000)
 */
 
 //<canvas> element to display the scene
@@ -15,10 +22,20 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-var geometry = new THREE.BoxGeometry();
-var material = new THREE.MeshBasicMaterial( { color: 0xea92b1 } );
+var length = 2;
+var width = 2;
+var depth = 2;
+var geometry = new THREE.BoxBufferGeometry(length, width, depth);
+//var material = new THREE.MeshBasicMaterial( { color: 0xea92b1 } ); //tidak terpengaruh light
+//var material = new THREE.MeshLambertMaterial( { color: 0xFFFFFF } );//kalo pake ini perlu light
+var material = new THREE.MeshNormalMaterial( { color: 0xea92b1, flatShading: true } ); 
 var cube = new THREE.Mesh( geometry, material );
 scene.add( cube ); //add the mesh to the scene
+
+// var color = 0xFFFFFF;
+// var intensity = 1;
+// var light = new THREE.AmbientLight(color, intensity);
+// scene.add( light );
 
 //camera.position.z = 5;
 camera.position.set(0, 0, 3);
