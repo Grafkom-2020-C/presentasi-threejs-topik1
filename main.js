@@ -27,14 +27,20 @@ var width = 2;
 var depth = 2;
 var geometry = new THREE.BoxBufferGeometry(length, width, depth);
 //var material = new THREE.MeshBasicMaterial( { color: 0xea92b1 } ); //tidak terpengaruh light
-//var material = new THREE.MeshLambertMaterial( { color: 0xFFFFFF } );//kalo pake ini perlu light
-var material = new THREE.MeshNormalMaterial( { color: 0xea92b1, flatShading: true } ); 
+// var material = new THREE.MeshLambertMaterial( { 
+//     color: 0xea92b1, 
+//     emissive: 0x0, 
+//     emissiveIntensity: 1,
+//     side: THREE.DoubleSide
+// } );//kalo pake ini perlu light
+//var material = new THREE.MeshNormalMaterial( ); 
 var cube = new THREE.Mesh( geometry, material );
 scene.add( cube ); //add the mesh to the scene
 
 // var color = 0xFFFFFF;
 // var intensity = 1;
 // var light = new THREE.AmbientLight(color, intensity);
+// light.position.set( 0, 1, 1 ).normalize();
 // scene.add( light );
 
 //camera.position.z = 5;
@@ -45,7 +51,6 @@ camera.position.set(0, 0, 3);
 /*
     BoxGeometry = objek yang berisi vertices (points) dan faces (fill)
     MashBasicMaterial = material
-    0x00ff00 = ijo
     Mesh = object that takes a geometry, and applies a material to it, which we then can insert to our scene, and move freely around
     scene.add() = the thing we add will be added to the coordinates (0,0,0)
 */
