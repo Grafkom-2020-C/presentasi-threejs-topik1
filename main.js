@@ -33,7 +33,7 @@ var geometry = new THREE.BoxBufferGeometry(length, width, depth);
 //     emissiveIntensity: 1,
 //     side: THREE.DoubleSide
 // } );//kalo pake ini perlu light
-//var material = new THREE.MeshNormalMaterial( ); 
+var material = new THREE.MeshNormalMaterial( ); 
 var cube = new THREE.Mesh( geometry, material );
 scene.add( cube ); //add the mesh to the scene
 
