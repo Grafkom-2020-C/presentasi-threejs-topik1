@@ -55,6 +55,16 @@ camera.position.set(0, 0, 3);
     scene.add() = the thing we add will be added to the coordinates (0,0,0)
 */
 
+function onKeyDown(event) {
+    console.log(event.keyCode);
+    if (event.keyCode == 83) camera.position.z+=0.01;
+    else if (event.keyCode == 87) camera.position.z-=0.01;
+  }
+//   function onKeyUp (event) {
+//     if (event.keyCode == 24) camera.position.z-=0.01;
+//   }
+  document.addEventListener('keydown', onKeyDown);
+  //document.addEventListener('keyup', onKeyUp);
 
 //create a loop that causes the renderer to draw the scene every time the screen is refreshed
 var animate = function ()  //Rendering
